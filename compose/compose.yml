@@ -1,0 +1,19 @@
+services:
+  next_db:
+    container_name: next_db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: 'next_js_dashboard' # Replace with your desired database name
+      POSTGRES_USER: 'postgres' # Replace with your desired username
+      POSTGRES_PASSWORD: '528478huaHUA' # Set a strong password
+      POSTGRES_HOST_AUTH_METHOD: 'trust' # For local development, allows connection without password check
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data/:/var/lib/postgresql/data # Persist data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
