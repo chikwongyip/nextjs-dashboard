@@ -10,6 +10,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   // This function will wrap the contents of handleSearch, and only run the code after a specific time once the user has stopped typing (300ms).
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
+    params.set('page', '1');
     if (term) {
       params.set('query', term);
     } else {

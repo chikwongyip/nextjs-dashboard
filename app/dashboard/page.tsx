@@ -17,6 +17,7 @@ export default async function Page() {
     totalPaidInvoices,
     totalPendingInvoices
   } = await fetchCardData();
+
   // console.log(revenue);
   return (
     <main>
